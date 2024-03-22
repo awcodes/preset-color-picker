@@ -1,8 +1,11 @@
-# A color picker field for Filament Forms that uses preset color palettes
+# Preset Color Picker
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/awcodes/preset-color-picker.svg?style=flat-square)](https://packagist.org/packages/awcodes/preset-color-picker)
 [![Total Downloads](https://img.shields.io/packagist/dt/awcodes/preset-color-picker.svg?style=flat-square)](https://packagist.org/packages/awcodes/preset-color-picker)
 
+A color picker field for Filament Forms that uses preset color palettes.
+
+![Screenshot 2024-03-22 at 2 11 13 PM](https://github.com/awcodes/preset-color-picker/assets/3596800/e0c162db-6e21-4929-bbb5-f82f1a2e8f20)
 
 ## Installation
 
