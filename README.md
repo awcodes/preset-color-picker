@@ -15,10 +15,21 @@ You can install the package via composer:
 composer require awcodes/preset-color-picker
 ```
 
-Optionally, you can publish the views using ***(although this is not recommended)***
+> [!IMPORTANT]
+> If you have not set up a custom theme and are using a Panel follow the instructions in the [Filament Docs](https://filamentphp.com/docs/3.x/panels/themes#creating-a-custom-theme) first. The following applies to both the Panels Package and the standalone Forms package.
 
-```bash
-php artisan vendor:publish --tag="preset-color-picker-views"
+Add the plugin's views to your `tailwind.config.js` file.
+
+```js
+content: [
+    './vendor/awcodes/preset-color-picker/resources/views/**/*.blade.php',
+]
+```
+
+Rebuild your custom theme.
+
+```sh
+npm run build
 ```
 
 ## Usage
