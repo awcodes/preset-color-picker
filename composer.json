@@ -1,6 +1,6 @@
 {
     "name": "awcodes/preset-color-picker",
-    "description": "A color picker field for Filament Forms that uses preset color palettes",
+    "description": "A color picker field for Filament Forms that uses preset color palettes.",
     "keywords": [
         "awcodes",
         "filament",
