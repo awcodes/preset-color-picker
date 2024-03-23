@@ -6,16 +6,16 @@
         x-data="{
             state: $wire.{{ $applyStateBindingModifiers("\$entangle('{$getStatePath()}')") }}
         }"
-        class="flex items-center flex-wrap gap-3"
+        class="fi-preset-color-picker flex items-center flex-wrap gap-3"
     >
         @foreach($getColors() as $key => $color)
             <label
                 x-data
                 style="background-color: rgba({{ $color[500] }}, 1);"
-                class="size-8 rounded-full cursor-pointer focus-within:ring-primary-500 focus-within:outline focus-within:outline-primary-300 focus-within:outline-2 focus-within:outline-offset-2"
+                class="fi-preset-color-picker-item size-8 rounded-full cursor-pointer focus-within:ring-primary-500 focus-within:outline focus-within:outline-primary-300 focus-within:outline-2 focus-within:outline-offset-2"
                 x-bind:class="{
-                    'ring-2 ring-primary-500': state === '{{ $key }}',
-                    'ring-1 ring-gray-400 dark:ring-gray-700': state !== '{{ $key }}',
+                    'fi-preset-color-picker-item-active ring-2 ring-primary-500': state === '{{ $key }}',
+                    'ring-0 ring-gray-400 dark:ring-gray-700': state !== '{{ $key }}',
                 }"
                 x-tooltip="{
                     content: @js(str($key)->title()->replace('-', ' ')),
