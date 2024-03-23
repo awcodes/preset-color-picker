@@ -53,9 +53,9 @@ PresetColorPicker::make('color')
 
 These are the available classes for css coustmizations:
 
-- for the main container: `fi-preset-color-picker`
-- for items: `fi-preset-color-picker-item`
-- for active/selected item: `fi-preset-color-picker-item-active`
+- for the main container: `pcp-preset-color-picker`
+- for items: `pcp-preset-color-picker-item`
+- for active/selected item: `pcp-preset-color-picker-item-active`
 
 ## Testing
 
