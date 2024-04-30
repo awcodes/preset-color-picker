@@ -45,6 +45,7 @@ PresetColorPicker::make('color')
     ->colors([
         // array of Filament Color objects    
     ])
+    ->size('sm') // optional 'xs', 'sm', 'md', 'lg'
     ->withBlack(swap: '#111111')
     ->withWhite(swap: '#f5f5f5'),
 ```
