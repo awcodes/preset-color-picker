@@ -21,12 +21,21 @@ class PresetColorPicker extends Field
 
     protected string | null $swapBlack = null;
 
+    protected string | Closure | null $size = null;
+
     /**
      * @param array<Color>|Closure $colors
      */
     public function colors(array | Closure $colors): static
     {
         $this->colors = $colors;
+
+        return $this;
+    }
+
+    public function size(string | Closure $size): static
+    {
+        $this->size = $size;
 
         return $this;
     }
@@ -63,6 +72,11 @@ class PresetColorPicker extends Field
         }
 
         return $colors;
+    }
+
+    public function getSize(): string
+    {
+        return $this->evaluate($this->size) ?? 'md';
     }
 
     public function hasWhite(): bool
