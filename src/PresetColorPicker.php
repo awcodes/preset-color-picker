@@ -6,6 +6,7 @@ use Closure;
 use Filament\Forms\Components\Field;
 use Filament\Support\Colors\Color;
 use Filament\Support\Facades\FilamentColor;
+use Illuminate\Support\Collection;
 
 class PresetColorPicker extends Field
 {
@@ -59,7 +60,7 @@ class PresetColorPicker extends Field
     /**
      * @return array<Color>
      */
-    public function getColors(): array
+    public function getColors(): array | Collection
     {
         $colors = $this->evaluate($this->colors) ?? FilamentColor::getColors();
 
@@ -71,7 +72,7 @@ class PresetColorPicker extends Field
             $colors['black'] = Color::hex($this->swapBlack ?? '#000000');
         }
 
-        return $colors;
+        return ColorPicker::getColors($colors);
     }
 
     public function getSize(): string

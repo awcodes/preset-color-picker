@@ -15,7 +15,9 @@
         @foreach($getColors() as $key => $color)
             <label
                 x-data
-                style="background-color: rgba({{ $color[500] }}, 1);"
+                @if ($color['type'] !== 'class')
+                    style="background-color: {{ $color['value'] }};"
+                @endif
                 @class([
                     'pcp-preset-color-picker-item rounded-full cursor-pointer focus-within:ring-primary-500 focus-within:outline focus-within:outline-primary-300 focus-within:outline-2 focus-within:outline-offset-2',
                     match($getSize()) {
@@ -24,6 +26,7 @@
                         'lg' => 'size-10',
                         default => 'size-8',
                     },
+                    $color['value'] => $color['type'] === 'class',
                 ])
                 x-bind:class="{
                     'pcp-preset-color-picker-item-active ring-2 ring-primary-500': state === '{{ $key }}',
@@ -31,7 +34,7 @@
 
                 }"
                 x-tooltip="{
-                    content: @js(str($key)->title()->replace('-', ' ')),
+                    content: '{{ $color['label'] }}',
                     theme: $store.theme,
                 }"
             >
@@ -41,7 +44,7 @@
                     value="{{ $key }}"
                     class="opacity-0 pointer-events-none"
                 />
-                <span class="sr-only">{{ str($key)->title()->replace('-', ' ') }}</span>
+                <span class="sr-only">{{ $color['label'] }}</span>
             </label>
         @endforeach
     </div>
