@@ -21,14 +21,14 @@ class PresetColorPicker extends Field
 
     protected bool | Closure | null $hasBlack = null;
 
-    protected string | null $swapWhite = null;
+    protected ?string $swapWhite = null;
 
-    protected string | null $swapBlack = null;
+    protected ?string $swapBlack = null;
 
     protected string | Closure | null $size = null;
 
     /**
-     * @param array<Color>|Closure $colors
+     * @param  array<Color>|Closure  $colors
      */
     public function colors(array | Closure $colors): static
     {

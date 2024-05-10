@@ -2,10 +2,10 @@
 
 namespace Awcodes\PresetColorPicker;
 
+use Awcodes\PresetColorPicker\Testing\TestsPresetColorPicker;
 use Livewire\Features\SupportTesting\Testable;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Awcodes\PresetColorPicker\Testing\TestsPresetColorPicker;
 
 class PresetColorPickerServiceProvider extends PackageServiceProvider
 {
