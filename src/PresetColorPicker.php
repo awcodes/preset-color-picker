@@ -3,12 +3,16 @@
 namespace Awcodes\PresetColorPicker;
 
 use Closure;
+use Filament\Forms\Components\Concerns\HasExtraInputAttributes;
 use Filament\Forms\Components\Field;
 use Filament\Support\Colors\Color;
 use Filament\Support\Facades\FilamentColor;
+use Illuminate\Support\Collection;
 
 class PresetColorPicker extends Field
 {
+    use HasExtraInputAttributes;
+
     protected string $view = 'preset-color-picker::preset-color-picker';
 
     protected array | Closure | null $colors = null;
@@ -59,7 +63,7 @@ class PresetColorPicker extends Field
     /**
      * @return array<Color>
      */
-    public function getColors(): array
+    public function getColors(): array | Collection
     {
         $colors = $this->evaluate($this->colors) ?? FilamentColor::getColors();
 
@@ -71,7 +75,7 @@ class PresetColorPicker extends Field
             $colors['black'] = Color::hex($this->swapBlack ?? '#000000');
         }
 
-        return $colors;
+        return ColorPicker::processColors($colors);
     }
 
     public function getSize(): string
