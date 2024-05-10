@@ -6,7 +6,7 @@ use Illuminate\Support\Collection;
 
 class ColorPicker
 {
-    public static function getColors(array $colors): array | Collection
+    public static function processColors(array $colors): array | Collection
     {
         return collect($colors)->mapWithKeys(function ($color, $key) {
             return [$key => static::buildColor($color, $key)];

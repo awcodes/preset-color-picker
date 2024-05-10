@@ -15,36 +15,45 @@
         @foreach($getColors() as $key => $color)
             <label
                 x-data
-                @if ($color['type'] !== 'class')
-                    style="background-color: {{ $color['value'] }};"
-                @endif
+                x-tooltip="{
+                    content: '{{ $color['label'] }}',
+                    theme: $store.theme,
+                }"
                 @class([
-                    'pcp-preset-color-picker-item rounded-full cursor-pointer focus-within:ring-primary-500 focus-within:outline focus-within:outline-primary-300 focus-within:outline-2 focus-within:outline-offset-2',
+                    'pcp-preset-color-picker-item rounded-full cursor-pointer ring-2
+                    ring-gray-950/10 dark:ring-white/10
+                    focus-within:outline focus-within:outline-white focus-within:outline-2',
                     match($getSize()) {
                         'xs' => 'size-4',
                         'sm' => 'size-6',
                         'lg' => 'size-10',
                         default => 'size-8',
                     },
-                    $color['value'] => $color['type'] === 'class',
                 ])
                 x-bind:class="{
-                    'pcp-preset-color-picker-item-active ring-2 ring-primary-500': state === '{{ $key }}',
-                    'ring-1 ring-gray-400 dark:ring-gray-700': state !== '{{ $key }}',
-
-                }"
-                x-tooltip="{
-                    content: '{{ $color['label'] }}',
-                    theme: $store.theme,
+                    'pcp-preset-color-picker-item-active !ring-primary-500 ring-offset-2 ring-offset-white dark:ring-offset-black': state === '{{ $key }}'
                 }"
             >
-                <input
-                    type="radio"
-                    x-model="state"
-                    value="{{ $key }}"
-                    class="opacity-0 pointer-events-none"
-                />
-                <span class="sr-only">{{ $color['label'] }}</span>
+                <div
+                    {{
+                        \Filament\Support\prepare_inherited_attributes($getExtraInputAttributeBag())
+                            ->class([
+                                'rounded-full h-full w-full',
+                                $color['value'] => $color['type'] === 'class',
+                            ])
+                    }}
+                    @if ($color['type'] !== 'class')
+                        style="background-color: {{ $color['value'] }};"
+                    @endif
+                >
+                    <input
+                        type="radio"
+                        x-model="state"
+                        value="{{ $key }}"
+                        class="opacity-0 pointer-events-none"
+                    />
+                    <span class="sr-only">{{ $color['label'] }}</span>
+                </div>
             </label>
         @endforeach
     </div>
