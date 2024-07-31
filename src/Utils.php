@@ -4,7 +4,7 @@ namespace Awcodes\PresetColorPicker;
 
 use Illuminate\Support\Collection;
 
-class ColorPicker
+class Utils
 {
     public static function processColors(array $colors): array | Collection
     {
