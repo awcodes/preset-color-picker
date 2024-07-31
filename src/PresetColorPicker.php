@@ -60,9 +60,6 @@ class PresetColorPicker extends Field
         return $this;
     }
 
-    /**
-     * @return array<Color>
-     */
     public function getColors(): array | Collection
     {
         $colors = $this->evaluate($this->colors) ?? FilamentColor::getColors();
