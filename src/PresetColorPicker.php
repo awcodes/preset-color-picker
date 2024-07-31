@@ -75,7 +75,7 @@ class PresetColorPicker extends Field
             $colors['black'] = Color::hex($this->swapBlack ?? '#000000');
         }
 
-        return ColorPicker::processColors($colors);
+        return Utils::processColors($colors);
     }
 
     public function getSize(): string
