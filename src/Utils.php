@@ -17,7 +17,7 @@ class Utils
     {
         $value = is_array($color) ? $color[500] : $color;
 
-        if (preg_match("/(^#?[a-f0-9]{6})/", $value) === 1) {
+        if (preg_match('/(^#?[a-f0-9]{6})/', $value) === 1) {
             $type = 'hex';
         } elseif (preg_match("/([a-f0-9]{3}$)|(\d{1,3},\s\d{1,3},\s\d{1,3})/", $value) === 1) {
             $type = 'rgb';

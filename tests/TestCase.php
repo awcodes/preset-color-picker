@@ -2,6 +2,7 @@
 
 namespace Awcodes\PresetColorPicker\Tests;
 
+use Awcodes\PresetColorPicker\PresetColorPickerServiceProvider;
 use BladeUI\Heroicons\BladeHeroiconsServiceProvider;
 use BladeUI\Icons\BladeIconsServiceProvider;
 use Filament\Actions\ActionsServiceProvider;
@@ -11,7 +12,6 @@ use Filament\Support\SupportServiceProvider;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 use RyanChandler\BladeCaptureDirective\BladeCaptureDirectiveServiceProvider;
-use Awcodes\PresetColorPicker\PresetColorPickerServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -32,7 +32,7 @@ class TestCase extends Orchestra
 
     public function getEnvironmentSetUp($app): void
     {
-//        config()->set('database.default', 'testing');
+        //        config()->set('database.default', 'testing');
 
         /*
         $migration = include __DIR__.'/../database/migrations/create_preset-color-picker_table.php.stub';

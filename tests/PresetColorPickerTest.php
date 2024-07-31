@@ -6,9 +6,10 @@ use Awcodes\PresetColorPicker\Tests\Fixtures\TestForm;
 use Filament\Forms\ComponentContainer;
 use Filament\Support\Colors\Color;
 use Filament\Support\Facades\FilamentColor;
+
 use function Pest\Livewire\livewire;
 
-it('has default colors', function() {
+it('has default colors', function () {
     $field = (new PresetColorPicker('color'))
         ->container(ComponentContainer::make(TestForm::make()));
 
@@ -16,7 +17,7 @@ it('has default colors', function() {
         ->getColors()->toHaveKeys(array_keys(FilamentColor::getColors()));
 });
 
-it('supports custom colors', function() {
+it('supports custom colors', function () {
     $field = (new PresetColorPicker('color'))
         ->container(ComponentContainer::make(TestForm::make()))
         ->colors([
@@ -28,7 +29,7 @@ it('supports custom colors', function() {
         ->getColors()->toHaveKey('badass');
 });
 
-it('sets the right size', function() {
+it('sets the right size', function () {
     $field = (new PresetColorPicker('color'))
         ->container(ComponentContainer::make(TestForm::make()))
         ->size('sm');
@@ -37,7 +38,7 @@ it('sets the right size', function() {
         ->getSize()->toBe('sm');
 });
 
-it('adds white and black', function() {
+it('adds white and black', function () {
     $field = (new PresetColorPicker('color'))
         ->container(ComponentContainer::make(TestForm::make()))
         ->withBlack()
@@ -47,7 +48,7 @@ it('adds white and black', function() {
         ->getColors()->toHaveKeys(['white', 'black']);
 });
 
-it('swaps white and black', function() {
+it('swaps white and black', function () {
     $field = (new PresetColorPicker('color'))
         ->container(ComponentContainer::make(TestForm::make()))
         ->withBlack(swap: '#ef4444')
@@ -66,9 +67,9 @@ it('can render the form component', function () {
 });
 
 it('can save correct data', function () {
-   livewire(TestComponent::class)
+    livewire(TestComponent::class)
         ->fillForm([
-            'color' => 'badass'
+            'color' => 'badass',
         ])
         ->assertFormSet([
             'color' => 'badass',
@@ -81,13 +82,13 @@ it('can save correct data', function () {
 it('can update correct data', function () {
     livewire(TestComponent::class)
         ->fillForm([
-            'color' => 'badass'
+            'color' => 'badass',
         ])
         ->assertFormSet([
             'color' => 'badass',
         ])
         ->fillForm([
-            'color' => 'primary'
+            'color' => 'primary',
         ])
         ->call('save')
         ->assertHasNoFormErrors()

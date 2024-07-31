@@ -21,7 +21,7 @@ class TestComponent extends TestForm
                     ])
                     ->size('sm')
                     ->withBlack()
-                    ->withWhite()
+                    ->withWhite(),
             ]);
     }
 }
